@@ -1,0 +1,17 @@
+{
+    "name": "Bigge!",
+    "short_name": "Bigge!",
+    "lang": "nl-NL",
+    "start_url": "/",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "theme_color": "#F98F8F",
+    "icons": [
+      {
+        "src": "images/icons/icon.png",
+        "sizes": "512x512",
+        "type": "png"
+      }
+    ],
+    "background_color": "#F98F8F"
+  }

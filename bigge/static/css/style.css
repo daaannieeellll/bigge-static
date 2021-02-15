@@ -1,0 +1,113 @@
+:root {
+    /* Colors */
+    --pink: #FCC8FC;
+    --red: #F98F8F;
+    --blue: #A8D9F4;
+    --green: #9BE077;
+    /* --black: #484848; */
+    --black: #282828;
+}
+
+* {
+    font-family: 'Oswald';
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+html {
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    background-image: url('../images/bg.svg');
+    background-blend-mode: multiply;
+    background-repeat:repeat;
+    background-size: 80vh;
+
+    -webkit-transition: background 0.2s linear;
+    -moz-transition: background 0.2s linear;
+    -ms-transition: background 0.2s linear;
+    -o-transition: background 0.2s linear;
+    transition: background 0.2s linear;
+
+}
+/* Change backgound color according to card type */
+body.pink  { background-color: var(--pink);  }
+body.red   { background-color: var(--red);   }
+body.blue  { background-color: var(--blue);  }
+body.green { background-color: var(--green); }
+body.black { background-color: var(--black); }
+
+#card-container {
+    background-image: url('../images/linnen.svg');
+    background-size: cover;
+    border-radius: 3vh;
+
+    width: 45vh;
+    height: 60vh;
+    max-width: 85vw;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+
+    box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.4);
+}
+#card-icon {
+    position: relative;
+    width: 35vh;
+    padding-top: 7vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#card-data {
+    text-align: center;
+}
+
+#next-card {
+    background-image: url('../images/linnen.svg');
+    background-blend-mode:multiply;
+    background-size: cover;
+    border-radius: 3vh;
+    width: 45vh;
+    height: 10vh;
+    max-width: 85vw;
+    margin-top: 8vh;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 1px 10px 30px 0px rgba(0, 0, 0, 0.4);
+}
+#next-card:active:hover {
+    background-color: #eee;
+}
+
+#next-card p {
+    position: relative;
+    font-size: 3vh;
+    text-align: center;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald-Regular.woff2') format('woff2'),
+        url('../fonts/Oswald-Regular.woff') format('woff'),
+        url('../fonts/Oswald-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
