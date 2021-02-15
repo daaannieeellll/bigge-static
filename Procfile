@@ -1,1 +1,1 @@
-web: gunicorn bigge:app
+web: gunicorn bigge:"create_app()"
