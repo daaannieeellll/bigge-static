@@ -1,11 +1,3 @@
-window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent the mini-infobar from appearing on mobile
-    e.preventDefault();
-    // Optionally, send analytics event that PWA install promo was shown.
-    console.log(`'beforeinstallprompt' event was fired.`);
-    alert("check");
-  });
-
 async function registerSW() {
     if ('serviceWorker' in navigator) {
         try {
