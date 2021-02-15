@@ -30,6 +30,14 @@ function loadJSON(callback) {
 window.addEventListener("load", () => {
     registerSW();
 
+    // Set scrollable (iOS)
+    if (navigator.standalone) {
+        iNoBounce.enable();
+    } else {
+        iNoBounce.disable();
+    }
+
+
     // Parsing JSON string into object
     loadJSON(function(response) {
     window.Data = JSON.parse(response);
