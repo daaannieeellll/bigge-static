@@ -3,14 +3,15 @@
     "short_name": "Bigge!",
     "lang": "nl-NL",
     "start_url": "/",
-    "display": "fullscreen",
+    "display": "standalone",
     "orientation": "portrait",
     "theme_color": "#F98F8F",
     "icons": [
       {
-        "src": "images/icons/icon.png",
+        "src": "./images/icons/icon.png",
         "sizes": "512x512",
-        "type": "png"
+        "type": "image/png",
+        "purpose": "maskable any"
       }
     ],
     "background_color": "#F98F8F"

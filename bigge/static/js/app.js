@@ -1,3 +1,22 @@
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent the mini-infobar from appearing on mobile
+    e.preventDefault();
+    // Optionally, send analytics event that PWA install promo was shown.
+    console.log(`'beforeinstallprompt' event was fired.`);
+    alert("check");
+  });
+
+async function registerSW() {
+    if ('serviceWorker' in navigator) {
+        try {
+            await navigator.serviceWorker.register('./sw.js');
+        }
+        catch (e) {
+            console.log(`SW registration failed`);
+        }
+    }
+}
+
 document.addEventListener('touchstart', function (e) {
     e.preventDefault();
 });
@@ -15,16 +34,6 @@ function loadJSON(callback) {
     xobj.send(null);
 }
 
-async function registerSW() {
-    if ('serviceWorker' in navigator) {
-        try {
-            await navigator.serviceWorker.register('./sw.js');
-        }
-        catch (e) {
-            console.log(`SW registration failed`);
-        }
-    }
-}
 
 window.addEventListener("load", () => {
     registerSW();
