@@ -1,1 +1,1 @@
-web: gunicorn app: bigge
+web: gunicorn bigge:app
