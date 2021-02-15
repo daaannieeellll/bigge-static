@@ -13,7 +13,6 @@ document.addEventListener('touchstart', function (e) {
     e.preventDefault();
 });
 
-
 function loadJSON(callback) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
@@ -25,7 +24,6 @@ function loadJSON(callback) {
     };
     xobj.send(null);
 }
-
 
 window.addEventListener("load", () => {
     registerSW();
@@ -112,16 +110,13 @@ function rnd(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-
 function updateText (text) {
     document.getElementById('card-data').innerHTML = "<p>"+text+"</p>";
 }
-
 function updateBG(type) {
     // document.body.style.backgroundColor = "var(--"+Data["meta"]["colors"][type]+")";
     document.body.className = Data["meta"]["colors"][type];
 }
-
 function updateIcon (type) {
     document.getElementById("card-icon").innerHTML = "<img src=\"/static/images/types/" + type + ".svg\">";
 }
