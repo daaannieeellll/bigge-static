@@ -20,12 +20,6 @@
     -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
-html {
-    height: 100%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
 body {
     background-image: url('../images/bg.svg');
     background-blend-mode: multiply;
@@ -107,7 +101,16 @@ body.black { background-color: var(--black); }
     src: url('../fonts/Oswald-Regular.woff2') format('woff2'),
         url('../fonts/Oswald-Regular.woff') format('woff'),
         url('../fonts/Oswald-Regular.ttf') format('truetype');
-    font-weight: normal;
+        font-weight: normal;
     font-style: normal;
     font-display: swap;
+}
+
+@media all and (display-mode: standalone) {
+    html {
+        height: 100%;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        display: none;
+    }
 }
