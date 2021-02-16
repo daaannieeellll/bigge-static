@@ -1,5 +1,3 @@
-var global = this;
-
 // Since simply fetching is not doable
 var data = {
     "meta": {
@@ -44,9 +42,9 @@ var data = {
 };
 var spelers = ["A", "B", "C"];
 
-let s0 = data["meta"]["temps"]["s0"];
-let s1 = data["meta"]["temps"]["s1"];
-let aa = data["meta"]["temps"]["aa"];
+s0 = data["meta"]["temps"]["s0"];
+s1 = data["meta"]["temps"]["s1"];
+aa = data["meta"]["temps"]["aa"];
 
 
 // Set scrollable for iOS devices
@@ -60,7 +58,7 @@ window.onload = function () {
         iNoBounce.disable();
     }
 
-    global.container = new Container(document.getElementById('card-container'))
+    this.container = new Container(document.getElementById('card-container'))
 }
 
 // Disable double-tap zooming on iOS devices
@@ -80,6 +78,9 @@ class Container {
         // add first two cards programmatically
         this.push()
         this.push()
+
+        // add control button
+        this.addControlButton()
 
         // handle gestures
         this.handle()
@@ -306,9 +307,22 @@ class Container {
 
     }
 
+    addControlButton() {
+        let container = this;
+        let button = document.createElement('div')
+        button.id = 'next-card'
+        // button.onclick = 'container.autoDiscard()'
+        button.innerHTML = '<p>Volgende kaart!</p>'
+
+        insertAfter(button, this.board);
+
+        button.addEventListener("click",eventHandler);
+
+    }
+
     updateBG() {
 
-        document.body.className = global.data["meta"]["colors"][this.nextCard.firstElementChild.classList[1]];
+        document.body.className = window.data["meta"]["colors"][this.nextCard.firstElementChild.classList[1]];
 
     }
 
@@ -392,10 +406,10 @@ function rnd(min, max) {
 // Gets card type
 function getType() {
 
-    var probabilities = global.data["meta"]["probabilities"];
+    var probabilities = window.data["meta"]["probabilities"];
 
     // Generate a number from 1 to probability-sum
-    var r = rnd(1, global.data["meta"]["p_sum"]+1);
+    var r = rnd(1, window.data["meta"]["p_sum"]+1);
     var P_key = 0;
 
     for (var key in probabilities) {
@@ -419,7 +433,7 @@ function getCard () {
 
     buff.addType(type);
 
-    text = global.data[type][ rnd(0, global.data[type].length) ];
+    text = window.data[type][ rnd(0, window.data[type].length) ];
     speler0 = spelers[ rnd(0, spelers.length) ];
 
     do {
@@ -430,9 +444,9 @@ function getCard () {
 
     aantal = rnd(1, 6);
 
-    text = text.replace(global.s0, speler0)
-        .replace(global.s1, speler1)
-        .replace(global.aa, aantal);
+    text = text.replace(window.s0, speler0)
+        .replace(window.s1, speler1)
+        .replace(window.aa, aantal);
 
     return {"type": type, "data": text};
 }
@@ -444,6 +458,13 @@ function getCard () {
 // Opdracht                      : 30 → 30 (30)
 //                                         +100
 
+function eventHandler() {
+    container.autoDiscard();
+}
+
+function insertAfter (newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
 
 function fadeIn(element) {
     var op = 0.1;  // initial opacity
