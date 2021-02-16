@@ -22,7 +22,7 @@
 
 html {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -38,6 +38,7 @@ body {
     -o-transition: background 0.2s linear;
     transition: background 0.2s linear;
 
+    overflow: hidden;
 }
 /* Change backgound color according to card type */
 body.pink  { background-color: var(--pink);  }
@@ -45,6 +46,9 @@ body.red   { background-color: var(--red);   }
 body.blue  { background-color: var(--blue);  }
 body.green { background-color: var(--green); }
 body.black { background-color: var(--black); }
+
+#card-container {
+}
 
 .card {
     background-image: url('../images/linnen.svg');
@@ -79,6 +83,7 @@ body.black { background-color: var(--black); }
 }
 
 .card-data {
+    font-size: 2vh;
     text-align: center;
 }
 
@@ -90,6 +95,8 @@ body.black { background-color: var(--black); }
     border-radius: 3vh;
 
     position: absolute;
+
+    z-index: -1;
 
     width: 45vh;
     height: 10vh;
@@ -114,6 +121,7 @@ body.black { background-color: var(--black); }
     text-align: center;
     vertical-align: middle;
 }
+
 
 @font-face {
     font-family: 'Oswald';

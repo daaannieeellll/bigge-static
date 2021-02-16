@@ -129,14 +129,14 @@ class Container {
 
     autoDiscard() {
 
-        let deg = -90;
-        let posY = -this.board.clientWidth;
-        let posX = this.board.clientWidth;
+        let inv = rnd(0,2);
+        let deg = inv ? 90 : -90;
+        let posY = -this.board.clientWidth * 1.5;
+        let posX = inv ? -this.board.clientWidth : this.board.clientWidth;
 
-        if (this.nextCard) this.nextCard.style.transition = 'transform 200ms linear'
+        if (this.nextCard) this.nextCard.style.transition = 'transform 200ms ease-in'
 
-        // Change BG
-        document.body.className = global.data["meta"]["colors"][this.nextCard.firstElementChild.classList[1]];
+        this.updateBG();
 
         // throw card in the chosen direction
         this.topCard.style.transform =
@@ -253,8 +253,7 @@ class Container {
             }
             if (successful) {
 
-                // Change BG
-                document.body.className = global.data["meta"]["colors"][this.nextCard.firstElementChild.classList[1]];
+                this.updateBG();
 
                 // throw card in the chosen direction
                 this.topCard.style.transform =
@@ -302,7 +301,17 @@ class Container {
         card.appendChild(data)
 
         this.board.insertBefore(card, this.board.firstChild)
+        fadeIn(card);
+
+
     }
+
+    updateBG() {
+
+        document.body.className = global.data["meta"]["colors"][this.nextCard.firstElementChild.classList[1]];
+
+    }
+
 }
 
 // Buffer containing last n card types
@@ -378,16 +387,7 @@ let buff = new Buffer();
 function rnd(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
-function updateText (text) {
-    document.getElementById('card-data').innerHTML = "<p>"+text+"</p>";
-}
-function updateBG(type) {
-    // document.body.style.backgroundColor = "var(--"+Data["meta"]["colors"][type]+")";
-    document.body.className = global.data["meta"]["colors"][type];
-}
-function updateIcon (type) {
-    document.getElementById("card-icon").innerHTML = "<img src=\"/static/images/types/" + type + ".svg\">";
-}
+
 
 // Gets card type
 function getType() {
@@ -434,10 +434,6 @@ function getCard () {
         .replace(global.s1, speler1)
         .replace(global.aa, aantal);
 
-    // updateText(text);
-    // updateBG(type);
-    // updateIcon(type);
-    // console.log(text);
     return {"type": type, "data": text};
 }
 
@@ -447,3 +443,17 @@ function getCard () {
 // Stemrecht                     : 25 → 20 (20)
 // Opdracht                      : 30 → 30 (30)
 //                                         +100
+
+
+function fadeIn(element) {
+    var op = 0.1;  // initial opacity
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 10);
+}
