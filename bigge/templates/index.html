@@ -8,7 +8,8 @@
     <title>Bigge!</title>
 
     <script src="{{url_for('static', filename='js/app.js')}}"></script>
-    <script src="{{url_for('static', filename='js/inobounce.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/hammer.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/inobounce.js')}}"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 
     <link rel="manifest" href="{{url_for('static', filename='manifest.json')}}">
@@ -27,7 +28,17 @@
     <link rel="apple-touch-icon" type="png" sizes="512x512" href="{{url_for('static', filename='images/icons/icon.png')}}">
 </head>
 <body class="red">
-    <div id="card-container"><div id="card-icon" class="big"></div><div id="card-data"></div></div>
-    <div id="next-card" onclick="getCard()"><p>Volgende kaart!</p></div>
+    <div id="card-container">
+        <div class="card">
+            <div class="card-icon big"></div>
+            <div class="card-data"></div>
+        </div>
+        <div class="card">
+            <div class="card-icon big"></div>
+            <div class="card-data"></div>
+        </div>
+    </div>
+
+    <div id="next-card" onclick="container.autoDiscard()"><p>Volgende kaart!</p></div>
 </body>
 </html>

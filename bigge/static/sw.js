@@ -1,6 +1,5 @@
 const cacheStorage = 'bigge-v1';
 const staticAssets = [
-    "/",
     "/static/css/style.css",
     "/static/fonts/Oswald-Regular.ttf",
     "/static/fonts/Oswald-Regular.woff",
@@ -18,10 +17,11 @@ const staticAssets = [
     "/static/images/types/stemrecht.svg",
     "/static/images/types/vingeren.svg",
     "/static/js/app.js",
-    "/static/js/inobounce.min.js",
-    "/static/data.json",
+    "/static/js/hammer.min.js",
+    "/static/js/inobounce.js",
     "/static/manifest.json",
-    "/static/sw.js"
+    "/static/sw.js",
+    "/"
 ];
 
 
