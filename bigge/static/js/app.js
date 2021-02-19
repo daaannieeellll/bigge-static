@@ -1,13 +1,14 @@
-// Since simply fetching is not doable (TODO)
+// TODO
 var data = {
     "meta": {
         "temps": {
             "s0": "SPELER0",
             "s1": "SPELER1",
+            "a0": "WEINIG",
             "a1": "AANTAL",
             "a2": "VEEL"
         },
-        "p_sum": 145,
+        "p_sum": 155,
         "colors": {
             "opdracht": "green",
             "stemrecht": "pink",
@@ -17,15 +18,16 @@ var data = {
             "lepeltje": "pink",
             "vingeren": "pink",
             "big": "red",
-            "baas":"green"
+            "baas":"green",
+            "beerput":"red"
         },
         "probabilities": {
             "opdracht": 30,
             "stemrecht": 25,
             "nhie": 20,
             "mlt": 20,
-            "medusa": 15,
-            "lepeltje": 5,
+            "medusa": 20,
+            "lepeltje": 10,
             "vingeren": 10,
             "big": 10,
             "baas": 10
@@ -201,14 +203,14 @@ var data = {
         "Je lichaamshuid is van krokettenkorst OF Er loopt altijd een dwerg naast je die zegt dat je liegt",
         "Er worden iedere nacht 5 muggen losgelaten in je slaapkamer OF Je kruipt altijd voor in de rij",
         "Er staat een paard in de gang OF Je bent een bloemetjesgordijn",
-        "Je woont op de 94ste verdieping van een flat zonder lift OFAl je digitale communicatie moet vanaf vandaag via handgeschreven brief",
+        "Je woont op de 94ste verdieping van een flat zonder lift OF Al je digitale communicatie moet vanaf vandaag via handgeschreven brief",
         "Je draagt alleen maar kleding met een tijgerprint OF Iedere zaterdagavond speel je bingo in een bejaardentehuis",
         "Je gaat hard knorren als je geil bent OF Je wordt elke dag in een vrachtwagen vol varkens vervoerd naar je werk",
         "Overal waar je binnenkomt moet je een schwalbe maken OF Alles wat je doet wordt becommentarieerd door Jack van Gelder",
-        "Je moet elke week één bouquet roman lezen OFAl je gebruiksnamen en emailadressen beginnen voor de rest van je leven met piemelboy69",
+        "Je moet elke week één bouquet roman lezen OF Al je gebruiksnamen en emailadressen beginnen voor de rest van je leven met piemelboy69",
         "Je moet de basisschool overdoen OF Je praat tegen iedereen zoals je tegen baby’s praat",
         "Je glowt in the dark OF Als je muziek opzet komt de band automatisch live in je woonkamer optreden",
-        "Wanneer je loopt draag je een dienblad OFJe moet op al je eten sabbelen",
+        "Wanneer je loopt draag je een dienblad OF Je moet op al je eten sabbelen",
         "Je hebt verspreid over de dag 10 minuten om te eten OF Je moet elke dag een uur met aandacht naar TEL-SELL reclames kijken",
         "Je hebt een robot-butler OF Je onthoudt alles wat je leest",
         "Er ontstaat een elektrische schok als je iemand kust OF Je slaapt altijd op een vochtig matras",
@@ -406,7 +408,7 @@ var data = {
         "En nu door naar een rondje Lepeltje Lepeltje! SPELER1, pak je drankje erbij en neem gelijk een extra lege beker en een theelepeltje mee. (Tip: een theedoek is misschien ook handig). Je krijgt een minuut de tijd om zoveel mogelijk van jouw mixdrankje in de andere beker te lepelen. De bekers moeten op tafel blijven staan. Alles wat er in jouw beker overblijft moet je daarna adten. Alles in de andere beker mag je aan een vriend doneren. Succes!"
     ],
     "vingeren": [
-        "Zet voorafgaand aan het spel een drankje in het midden van de tafel, zodat alle spelers erbij kunnen. Je begint door iedereen één vinger op het drankje te laten leggen. Dan wordt er afgeteld en kun je kiezen om je vinger te laten liggen of je vinger eraf te halen. Telkens moet één persoon raden hoeveel vingers er nog op het drankje blijven liggen. De speler die het aantal vingers moet raden telt af en op één noemt hij/zij het aantal vingers dat hij/zij denkt dat er aan het glas blijven liggen. Heeft hij/zij het goed geraden? Dan mag je uit het spel. Zo niet, blijf je meespelen. De beurt gaat naar de volgende speler, etc. De speler die als laatste overblijft (en dus het slechtst heeft geraden) moet het glas adten."
+        "Zet allereerst een drankje in het midden van de tafel, zo dat iedereen erbij kan. Het spel kan beginnen als iedereen met één vinger het glas aanraakt. Er wordt nu afgeteld en je kunt kiezen of je je vinger op het glas houdt. Telkens moet één persoon raden hoeveel vingers er nog op het drankje blijven liggen. De speler die het aantal vingers moet raden, telt af en op één noemt hij het aantal vingers dat hij denkt dat er aan het glas blijven zitten. Is het goed geraden? Dan mag je uit het spel. Zo niet, blijf je meespelen. De beurt gaat dan naar de volgende speler, etc. De speler die als laatste overblijft (en dus het slechtst heeft geraden), moet het glas adten."
     ],
     "big": [
         "Helaas! SPELER1, jij bent De Big. Drink in een keer je glas leeg. Proost!"
@@ -415,9 +417,27 @@ var data = {
         "Gefeliciteerd! SPELER1, jij bent vanavond De Baas. Kies een speler uit die zijn glas in een keer leeg moet drinken!"
     ],
     "beerput": [
+        "Neem AANTAL slokken uit de beerput!",
+        "Neem AANTAL slokken uit de beerput!",
+        "Neem AANTAL slokken uit de beerput!",
+        "Neem AANTAL slokken uit de beerput!",
+        "Doneer AANTAL slokken aan de beerput!",
+        "Doneer AANTAL slokken aan de beerput!",
+        "Doneer AANTAL slokken aan de beerput!",
+        "Doneer AANTAL slokken aan de beerput!",
+        "Neem AANTAL slokken uit je eigen glas!",
+        "Deel AANTAL slokken uit de beerput uit!",
+        "Deel AANTAL slokken uit aan een andere speler! Deze mag ze uit zijn éígen glas drinken.",
+        "Vul de beerput aan met drank (met of zonder alcohol) uit de voorraadkast!",
+        "Ff rust, deze ronde gebeurt er niets.",
+        "De spelrichting draait om! Speel zelf nog eens en geef de beurt daarna door in tegengestelde richting.",
+        "FLOOOOOOOOOOOOOOOOORRRRRRR!!!!!!!!",
+        "Je mag een wedstrijdje duimworstelen met de speler tegenover je. De winnaar mag AANTAL slokken aan de beerput schenken.",
         "Allereerst een aantal voorbereidingen: ga met alle spelers aan een tafel zitten en zorg dat iedereen een mixdrankje bij zich heeft (geen bier dus!). Zorg daarnaast voor een extra glas (de beerput), vul die tot de helft met een mixdrankje en zet die in het midden van de tafel. Het doel van het spel is om zo snel mogelijk je eigen glas leeg te krijgen. Dit kan door te drinken en door het vullen van het centrale glas. Als het centrale glas leeg is mag de speler die hem leeg heeft gedronken hem weer tot halverwege vullen. De rest van het spel legt zichzelf uit. SPELER1  mag van start!"
     ]
 }
+
+
 
 var players = [];
 
@@ -428,6 +448,7 @@ var gameContainer;
 
 s0 = data["meta"]["temps"]["s0"];
 s1 = data["meta"]["temps"]["s1"];
+a0 = data["meta"]["temps"]["a0"];
 a1 = data["meta"]["temps"]["a1"];
 a2 = data["meta"]["temps"]["a2"];
 
@@ -607,7 +628,7 @@ class Startup {
 
             if (successful) {
 
-                if (this.topCard.classList.contains('gameSelector')) {
+                if (this.topCard.id == 'gameSelector') {
                     this.setGame();
                 }
 
@@ -638,7 +659,7 @@ class Startup {
         let board = document.createElement('div');
         board.id = 'setup-container';
         board.innerHTML =
-            `<div class="card"><div class="bigge-logo">
+            `<div class="card"><div class="card-icon">
                     <img src="/static/images/types/bigge.svg"></div>
                 <div class="card-data"><p>
                     Hii, superleuk dat je Bigge! komt spelen.
@@ -674,16 +695,14 @@ class Startup {
         card.id = 'gameSelector';
 
         card.children[1].innerHTML =
-            `<form>
-                <div class="radiobtn">
-                    <input type="radio" name="gameMode" id="standard" checked=true />
-                    <label for="standard">Standaard</label>
-                </div>
-                <div class="radiobtn">
-                    <input type="radio" name="gameMode" id="beerput" />
-                    <label for="beerput">Beerput</label>
-                </div>
-            </form>`
+            `<div class="radiobtn">
+                <input type="radio" name="gameMode" id="standard" checked=true />
+                <label for="standard">Standaard</label>
+            </div>
+            <div class="radiobtn">
+                <input type="radio" name="gameMode" id="beerput" />
+                <label for="beerput">Beerput</label>
+            </div>`
 
         this.board.insertBefore(card, this.board.firstChild)
     }
@@ -729,20 +748,23 @@ class Startup {
     }
 
     setGame() {
-        let form = document.getElementById('gameSelector');
-        beerput = form.firstChild.checked ? true : false;
+        beerput = !this.topCard.children[1].firstChild.firstElementChild.checked;
     }
 
 }
 
 class Game {
 
-    constructor(element) {
+    constructor() {
 
         this.board = this.createBoard();
 
         // add first two cards programmatically
-        this.push();
+        if (beerput)
+            this.push(beerput);
+        else
+            this.push();
+
         this.push();
 
         this.addStartButton();
@@ -751,7 +773,7 @@ class Game {
         document.body.className =
             window.data["meta"]["colors"][this.board.lastChild.firstElementChild.classList[1]];
 
-            // handle gestures
+        // handle gestures
         this.handle()
     }
 
@@ -897,13 +919,13 @@ class Game {
         }
     }
 
-    push() {
+    push(explainer) {
 
         let card = document.createElement('div')
         let icon = document.createElement('div')
         let data = document.createElement('div')
 
-        var newCard = getCard();
+        var newCard = getCard(explainer);
 
         card.classList.add('card')
         icon.classList.add('card-icon')
@@ -1044,17 +1066,25 @@ function getType() {
     }
 }
 // Gets card data
-function getCard () {
+function getCard (explainer) {
 
-    do {
+    if ( !beerput ) {
+        do {
 
-        type = getType();
+            type = getType();
 
-    } while (!buff.checkType(type));
+        } while (!buff.checkType(type));
+        buff.addType(type);
 
-    buff.addType(type);
+        text = window.data[type][ rnd(0, window.data[type].length) ];
 
-    text = window.data[type][ rnd(0, window.data[type].length) ];
+    } else {
+        type =  'beerput';
+        text = window.data[type][ rnd(0, window.data[type].length-1) ];
+    }
+    if (explainer)
+        text = window.data[type][window.data[type].length-1];
+
     speler0 = players[ rnd(0, players.length) ];
 
     do {
@@ -1069,6 +1099,7 @@ function getCard () {
 
     text = text.replace(window.s0, speler0)
         .replace(window.s1, speler1)
+        .replace(window.a0, weinig)
         .replace(window.a1, aantal)
         .replace(window.a2, veel);
 
