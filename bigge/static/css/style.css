@@ -20,11 +20,53 @@
     -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
+input[type="text"] {
+
+    background: none;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px dashed #777;
+    border-radius: 0;
+    padding-bottom: 0;
+}
+
+input[type="text"], input[type="text"]:before, input[type="text"]:after {
+    -webkit-user-select: initial;
+    -khtml-user-select: initial;
+    -moz-user-select: initial;
+    -ms-user-select: initial;
+    user-select: initial;
+
+    font-family: 'Providence Sans';
+    font-size: 3vh;
+    text-align: center;
+
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+form {
+    display: block;
+}
+
+label {
+    font-family: 'Providence Sans';
+    font-size: 4vh;
+}
+
 html {
     height: 100%;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
 }
+
+/* image {
+    pointer-events: none;
+} */
 
 body {
     background-image: url('../images/bg.svg');
@@ -48,17 +90,71 @@ body.green { background-color: var(--green); }
 body.black { background-color: var(--black); }
 
 
-#welcome, .card {
+.radiobtn {
+    position: relative;
+    display: block;
+    text-align: left;
+}
+.radiobtn label {
+    display: block;
+    color: #444;
+    padding-top: 2vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    border-bottom: 2px dashed #777;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.radiobtn label:after, .radiobtn label:before {
+    content: "";
+    position: absolute;
+    right: 3vh;
+    top: 2vh;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 1px;
+    border: 2px solid #777;
+    /*   background: #222; */
+}
+.radiobtn label:before {
+    background: transparent;
+    z-index: 2;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 5vh;
+    background-position: center;
+    width: 0;
+    height: 0;
+    /* Checkmark */
+    background-image: url('../images/check.svg');
+}
+.radiobtn input[type=radio] {
+    display: none;
+    position: absolute;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.radiobtn input[type=radio]:checked + label:before {
+    width: 4vh;
+    height: 4vh;
+}
+
+
+
+.card {
     background-image: url('../images/linnen.svg');
     background-size: cover;
     border-radius: 3vh;
 
+    display: block;
     position: absolute;
 
-    width: 45vh;
-    height: 60vh;
-    max-width: 85vw;
-    top: 38%;
+    width: 50vh;
+    height: 80vh;
+    /* max-width: 85vw; */
+    top: 45%;
     left: 50%;
 
     transform: translateX(-50%) translateY(-50%);
@@ -66,6 +162,15 @@ body.black { background-color: var(--black); }
     box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.3);
     -webkit-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.3);
     -moz-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.3);
+}
+
+.bigge-logo {
+    position: relative;
+    width: 38vh;
+    padding-top: 7vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-icon {
@@ -80,24 +185,28 @@ body.black { background-color: var(--black); }
 .card-data {
     font-size: 2vh;
     text-align: center;
+
+    padding-top: 2vh;
+    padding-left: 4vh;
+    padding-right: 4vh;
+
 }
 
-
-#next-card {
+#startGame, #stopGame {
     background-image: url('../images/linnen.svg');
     background-blend-mode:multiply;
     background-size: cover;
-    border-radius: 3vh;
+    border-radius: 2vh;
 
     position: absolute;
 
-    z-index: -1;
+    z-index: 11;
 
-    width: 45vh;
-    height: 10vh;
+    width: 25vh;
+    height: 7vh;
     max-width: 85vw;
 
-    bottom: 10%;
+    bottom: 0;
     left: 50%;
 
     transform: translateX(-50%) translateY(-50%);
@@ -106,15 +215,16 @@ body.black { background-color: var(--black); }
     -webkit-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.4);
     -moz-box-shadow: 1px 10px 30px 0px rgba(0, 0, 0, 0.4);
 }
-#next-card:active:hover {
+
+#startGame:active:hover, #stopGame:active:hover {
     background-color: #eee;
 }
 
-#next-card p {
+#startGame p, #stopGame p {
+    margin: 1vh;
     position: relative;
     font-size: 3vh;
     text-align: center;
-    vertical-align: middle;
 }
 
 
@@ -123,6 +233,16 @@ body.black { background-color: var(--black); }
     src: url('../fonts/Oswald-Regular.woff2') format('woff2'),
         url('../fonts/Oswald-Regular.woff') format('woff'),
         url('../fonts/Oswald-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Providence Sans';
+    src: url('../fonts/ProvidenceSans.woff2') format('woff2'),
+        url('../fonts/ProvidenceSans.woff') format('woff'),
+        url('../fonts/ProvidenceSans.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
