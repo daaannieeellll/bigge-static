@@ -1,298 +1,263 @@
-:root {
-    /* Colors */
-    --pink: #FCC8FC;
-    --red: #F98F8F;
-    --blue: #A8D9F4;
-    --green: #9BE077;
-    /* --black: #484848; */
-    --black: #282828;
+@font-face {
+  font-family: 'Oswald';
+  src: url("../fonts/Oswald-Regular.woff2") format("woff2"), url("../fonts/Oswald-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Providence Sans';
+  src: url("../fonts/ProvidenceSans.woff2") format("woff2"), url("../fonts/ProvidenceSans.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
-    font-family: 'Oswald';
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select:none;
-    -khtml-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
+  font-family: 'Oswald';
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-
-/* form {
-    display: block;
-} */
-
 label {
-    font-family: 'Providence Sans';
-    font-size: 4vh;
+  font-family: 'Providence Sans';
+  font-size: 4vh;
+}
+
+@media only screen and (max-device-aspect-ratio: 59 / 100) {
+  label {
+    font-size: 7vw;
+  }
 }
 
 html {
-    height: 100%;
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
+  height: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
-
-/* image {
-    pointer-events: none;
-} */
 
 body {
-    background-image: url('../images/bg.svg');
-    background-blend-mode: multiply;
-    background-repeat:repeat;
-    background-size: 80vh;
-
-    -webkit-transition: background 0.2s linear;
-    -moz-transition: background 0.2s linear;
-    -ms-transition: background 0.2s linear;
-    -o-transition: background 0.2s linear;
-    transition: background 0.2s linear;
-
-    overflow: hidden;
-}
-/* Change backgound color according to card type */
-body.pink  { background-color: var(--pink);  }
-body.red   { background-color: var(--red);   }
-body.blue  { background-color: var(--blue);  }
-body.green { background-color: var(--green); }
-body.black { background-color: var(--black); }
-
-
-.radiobtn {
-    position: relative;
-    display: block;
-    text-align: left;
-}
-.radiobtn label {
-    display: block;
-    color: #444;
-    padding-top: 2vh;
-    padding-left: 3vh;
-    padding-right: 3vh;
-    border-bottom: 2px dashed #777;
-    margin-bottom: 1vh;
-    cursor: pointer;
-}
-.radiobtn label:after, .radiobtn label:before {
-    content: "";
-    position: absolute;
-    right: 3vh;
-    top: 2vh;
-    width: 4vh;
-    height: 4vh;
-    max-width: 7vw;
-    max-height: 7vw;
-    border-radius: 1px;
-    border: 2px solid #777;
-    /*   background: #222; */
-}
-.radiobtn label:before {
-    background: transparent;
-    z-index: 2;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-size: 5vh;
-    background-position: center;
-    width: 0;
-    height: 0;
-    /* Checkmark */
-    background-image: url('../images/check.svg');
-}
-.radiobtn input[type=radio] {
-    display: none;
-    position: absolute;
-    width: 100%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-.radiobtn input[type=radio]:checked + label:before {
-    width: 4vh;
-    height: 4vh;
-    max-width: 7vw;
-    max-height: 7vw;
+  background-image: url("../images/bg.svg");
+  background-blend-mode: multiply;
+  background-repeat: repeat;
+  background-size: 80vh;
+  -webkit-transition: background 0.2s linear;
+  transition: background 0.2s linear;
+  overflow: hidden;
 }
 
-
-input[type="text"] {
-
-    background: none;
-
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px dashed #777;
-    border-radius: 0;
-    padding-bottom: 0;
+body.pink {
+  background-color: #FCC8FC;
 }
 
-input[type="text"], input[type="text"]:before, input[type="text"]:after {
-    -webkit-user-select: initial;
-    -khtml-user-select: initial;
-    -moz-user-select: initial;
-    -ms-user-select: initial;
-    user-select: initial;
-
-    font-family: 'Providence Sans';
-    font-size: 3vh;
-    text-align: center;
+body.red {
+  background-color: #F98F8F;
 }
 
-input[type="text"]:focus {
-    outline: none;
+body.blue {
+  background-color: #A8D9F4;
+}
+
+body.green {
+  background-color: #9BE077;
+}
+
+body.black {
+  background-color: #282828;
 }
 
 .card {
-    background-image: url('../images/linnen.svg');
-    background-size: cover;
-    border-radius: 3vh;
-
-    display: block;
-    position: absolute;
-
-    width: 50vh;
-    height: 80vh;
-    max-width: 85vw;
-    max-height: 136vw;
-    top: 45%;
-    left: 50%;
-
-    transform: translateX(-50%) translateY(-50%);
-
-    box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.3);
-    -webkit-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.3);
-    -moz-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.3);
+  background-image: url("../images/linnen.svg");
+  background-size: cover;
+  border-radius: 3vh;
+  display: block;
+  position: absolute;
+  width: 50vh;
+  height: 80vh;
+  max-width: 85vw;
+  max-height: 136vw;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  -webkit-box-shadow: 1px 10px 30px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 10px 30px 0px rgba(0, 0, 0, 0.3);
 }
 
-.bigge-logo {
-    position: relative;
-    width: 38vh;
-    padding-top: 7vh;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.card .card-icon {
+  position: relative;
+  width: 35vh;
+  max-width: 60vw;
+  padding-top: 7vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.card-icon {
-    position: relative;
-    width: 35vh;
-    max-width: 60vw;
-    padding-top: 7vh;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+@media only screen and (max-device-aspect-ratio: 59 / 100) {
+  .card .card-icon {
+    padding-top: 12vw;
+  }
 }
 
-.card-data {
-    font-size: 2vh;
-    text-align: center;
+.card .card-data {
+  font-size: 2vh;
+  text-align: center;
+  padding-top: 2vh;
+  padding-left: 4vh;
+  padding-right: 4vh;
+}
 
-    padding-top: 2vh;
-    padding-left: 4vh;
-    padding-right: 4vh;
-
+@media only screen and (max-device-aspect-ratio: 59 / 100) {
+  .card .card-data {
+    font-size: 3.4vw;
+    padding-top: 2vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
 }
 
 #startGame, #stopGame {
-    background-image: url('../images/linnen.svg');
-    background-blend-mode:multiply;
-    background-size: cover;
-    border-radius: 2vh;
+  background-image: url("../images/linnen.svg");
+  background-size: cover;
+  background-blend-mode: multiply;
+  border-radius: 2vh;
+  position: absolute;
+  width: 25vh;
+  height: 7vh;
+  max-width: 85vw;
+  max-height: 16vw;
+  bottom: 1vh;
+  left: 50%;
+  z-index: 1;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  -webkit-box-shadow: 1px 10px 30px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 10px 30px 0px rgba(0, 0, 0, 0.4);
+}
 
-    position: absolute;
-
-    z-index: 1;
-
-    width: 25vh;
-    height: 7vh;
-    max-width: 85vw;
-    max-height: 16vw;
-
-    bottom: 1vh;
-    left: 50%;
-
-    transform: translateX(-50%) translateY(-50%);
-
-    box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.4);
-    -webkit-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.4);
-    -moz-box-shadow: 1px 10px 30px 0px rgba(0, 0, 0, 0.4);
+@media only screen and (max-device-aspect-ratio: 59 / 100) {
+  #startGame, #stopGame {
+    bottom: 5vh;
+  }
 }
 
 #startGame:active:hover, #stopGame:active:hover {
-    background-color: #eee;
+  background-color: #eee;
 }
 
 #startGame p, #stopGame p {
-    margin: 1vh;
-    position: relative;
-    font-size: 3vh;
-    text-align: center;
+  margin: 1vh;
+  position: relative;
+  font-size: 3vh;
+  text-align: center;
 }
 
-
-@font-face {
-    font-family: 'Oswald';
-    src: url('../fonts/Oswald-Regular.woff2') format('woff2'),
-        url('../fonts/Oswald-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+@media only screen and (max-device-aspect-ratio: 59 / 100) {
+  #startGame p, #stopGame p {
+    margin: 2vw;
+    font-size: 6vw;
+  }
 }
 
-@font-face {
-    font-family: 'Providence Sans';
-    src: url('../fonts/ProvidenceSans.woff2') format('woff2'),
-        url('../fonts/ProvidenceSans.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+.radiobtn {
+  position: relative;
+  display: block;
+  text-align: left;
 }
 
-/* Responsiveness */
-@media only screen and (max-device-aspect-ratio: 59/100) {
-
-    label {
-        font-size: 7vw;
-    }
-
-    .radiobtn label {
-        padding-top: 3vw;
-        padding-left: 4vw;
-        padding-right: 4vw;
-    }
-    .radiobtn label:after, .radiobtn label:before {
-        right: 5vw;
-        top: 3vw;
-    }
-
-    input[type="text"], input[type="text"]:before, input[type="text"]:after {
-        font-size: 6vw;
-    }
-
-    .card-icon {
-        padding-top: 12vw;
-    }
-
-    .card-data {
-        font-size: 3.4vw;
-
-        padding-top: 2vw;
-        padding-left: 5vw;
-        padding-right: 5vw;
-
-    }
-
-    #startGame, #stopGame {
-        bottom: 5vh;
-    }
-
-
-    #startGame p, #stopGame p {
-        margin: 2vw;
-        font-size: 6vw;
-    }
+.radiobtn label {
+  display: block;
+  color: #444;
+  padding-top: 2vh;
+  padding-left: 3vh;
+  padding-right: 3vh;
+  border-bottom: 2px dashed #777;
+  margin-bottom: 1vh;
+  cursor: pointer;
 }
+
+@media only screen and (max-device-aspect-ratio: 59 / 100) {
+  .radiobtn label {
+    padding-top: 3vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+}
+
+.radiobtn label:after, .radiobtn label:before {
+  content: "";
+  position: absolute;
+  right: 3vh;
+  top: 2vh;
+  width: 4vh;
+  height: 4vh;
+  max-width: 7vw;
+  max-height: 7vw;
+  border-radius: 1px;
+  border: 2px solid #777;
+}
+
+.radiobtn label:before {
+  background: transparent;
+  z-index: 2;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 5vh;
+  background-position: center;
+  width: 0;
+  height: 0;
+  /* Checkmark */
+  background-image: url("../images/check.svg");
+}
+
+.radiobtn input[type=radio] {
+  display: none;
+  position: absolute;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.radiobtn input[type=radio]:checked + label:before {
+  width: 4vh;
+  height: 4vh;
+  max-width: 7vw;
+  max-height: 7vw;
+}
+
+input[type="text"] {
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px dashed #777;
+  border-radius: 0;
+  padding-bottom: 0;
+}
+
+input[type="text"], input[type="text"]:before, input[type="text"]:after {
+  -webkit-user-select: initial;
+     -moz-user-select: initial;
+      -ms-user-select: initial;
+          user-select: initial;
+  font-family: 'Providence Sans';
+  font-size: 3vh;
+  text-align: center;
+}
+
+@media only screen and (max-device-aspect-ratio: 59 / 100) {
+  input[type="text"], input[type="text"]:before, input[type="text"]:after {
+    font-size: 6vw;
+  }
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+/*# sourceMappingURL=style.css.map */

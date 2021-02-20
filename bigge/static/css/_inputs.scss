@@ -1,0 +1,93 @@
+
+.radiobtn {
+    position: relative;
+    display: block;
+    text-align: left;
+
+    label {
+        display: block;
+        color: #444;
+        padding-top: 2vh;
+        padding-left: 3vh;
+        padding-right: 3vh;
+        border-bottom: 2px dashed #777;
+        margin-bottom: 1vh;
+        cursor: pointer;
+        @media only screen and #{$ratio} {
+            padding-top: 3vw;
+            padding-left: 4vw;
+            padding-right: 4vw;
+        }
+
+        &:after, &:before {
+            content: "";
+            position: absolute;
+            right: 3vh;
+            top: 2vh;
+            width: 4vh;
+            height: 4vh;
+            max-width: 7vw;
+            max-height: 7vw;
+            border-radius: 1px;
+            border: 2px solid #777;
+
+            @media only screen and #{$ratio} {
+
+            }
+        }
+        &:before {
+            background: transparent;
+            z-index: 2;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-size: 5vh;
+            background-position: center;
+            width: 0;
+            height: 0;
+            /* Checkmark */
+            background-image: url('../images/check.svg');
+        }
+    }
+
+    input[type=radio] {
+        display: none;
+        position: absolute;
+        width: 100%;
+        appearance: none;
+        &:checked + label:before {
+            width: 4vh;
+            height: 4vh;
+            max-width: 7vw;
+            max-height: 7vw;
+        }
+    }
+}
+
+
+input[type="text"] {
+
+    background: none;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px dashed #777;
+    border-radius: 0;
+    padding-bottom: 0;
+}
+
+input[type="text"], input[type="text"]:before, input[type="text"]:after {
+    user-select: initial;
+
+    font-family: 'Providence Sans';
+    font-size: 3vh;
+    text-align: center;
+
+    @media only screen and #{$ratio} {
+        font-size: 6vw;
+    }
+}
+
+input[type="text"]:focus {
+    outline: none;
+}

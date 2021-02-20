@@ -1,0 +1,45 @@
+@import "vars";
+@import "fonts";
+
+* {
+    font-family: 'Oswald';
+    user-select:none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+
+label {
+    font-family: 'Providence Sans';
+    font-size: 4vh;
+    @media only screen and #{$ratio} {
+        font-size: 7vw;
+    }
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+body {
+    background-image: url('../images/bg.svg');
+    background-blend-mode: multiply;
+    background-repeat:repeat;
+    background-size: 80vh;
+
+    transition: background 0.2s linear;
+    overflow: hidden;
+
+    &.pink  { background-color: $pink;  }
+    &.red   { background-color: $red;   }
+    &.blue  { background-color: $blue;  }
+    &.green { background-color: $green; }
+    &.black { background-color: $black; }
+}
+
+
+@import "card";
+@import "gameControl";
+@import "inputs";

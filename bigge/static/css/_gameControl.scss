@@ -1,0 +1,42 @@
+#startGame, #stopGame {
+    background-image: url('../images/linnen.svg');
+    background-size: cover;
+    background-blend-mode:multiply;
+    border-radius: 2vh;
+
+    position: absolute;
+
+    width: 25vh;
+    height: 7vh;
+    max-width: 85vw;
+    max-height: 16vw;
+
+    bottom: 1vh;
+    left: 50%;
+
+    z-index: 1;
+
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.4);
+
+
+    @media only screen and #{$ratio} {
+        bottom: 5vh;
+    }
+
+    &:active:hover {
+        background-color: #eee;
+    }
+
+    p {
+        margin: 1vh;
+        position: relative;
+        font-size: 3vh;
+        text-align: center;
+
+        @media only screen and #{$ratio} {
+            margin: 2vw;
+            font-size: 6vw;
+        }
+    }
+}
