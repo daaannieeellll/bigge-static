@@ -25,8 +25,10 @@ class Visit(Base):
     __tablename__ = 'visit'
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id', ondelete='CASCADE'))
+    user_agent = Column(String(512))
     timestamp = Column(DateTime(timezone=True))
 
-    def __init__(self, user_id, timestamp):
+    def __init__(self, user_id, user_agent, timestamp):
         self.user_id = user_id
+        self.user_agent = user_agent
         self.timestamp = timestamp

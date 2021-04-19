@@ -41,7 +41,7 @@ def create_app(test_config=None):
                 db_session.add(user)
                 db_session.commit()
             
-            visit = Visit(user.id, datetime.now(tz))
+            visit = Visit(user.id, request.headers['User-Agent'], datetime.now(tz))
             db_session.add(visit)
             db_session.commit()
             return '200'
