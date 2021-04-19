@@ -453,11 +453,19 @@ a1 = data["meta"]["temps"]["a1"];
 a2 = data["meta"]["temps"]["a2"];
 
 
-// Set scrollable for iOS devices
+
 window.onload = function () {
-
+    
     registerSW();
+    
+    gip().then( data => {
+        console.log(data);
+        post("/metrics", data);
+    }).catch(error => {
+        console.log(error);
+    });
 
+    // Set scrollable for iOS devices
     if (navigator.standalone) {
         iNoBounce.enable();
     } else {
@@ -467,6 +475,7 @@ window.onload = function () {
     // Create new buffer
     window.buff = new Buffer();
 
+    // Instantiate startup screen
     window.setup = new Startup();
 }
 
@@ -1141,3 +1150,21 @@ function fadeIn(element) {
         op += op * 0.1;
     }, 10);
 }
+
+function post(url, data) {
+    return fetch(url, {
+        method: "POST", 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+}
+
+async function gip() {
+    var response = await fetch("https://ipinfo.io/json?token=2972b1f2e65778")
+    if (!response.ok)
+        throw new Error(`An error has occured: ${response.status}`);
+    return await response.json();
+};
