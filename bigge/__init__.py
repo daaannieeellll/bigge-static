@@ -1,5 +1,7 @@
-import os, pytz, requests
+import os
+
 from flask import Flask, render_template, request, redirect
+import json, pytz
 from datetime import datetime
 from .database import db_session, init_db
 from .models import User, Visit
@@ -16,7 +18,8 @@ def create_app(test_config=None):
             return
 
         url = request.url.replace("http://", "https://", 1)
-        return redirect(url, code=301)
+        code = 301
+        return redirect(url, code=code)
 
     # Initialize Database
     @app.before_first_request
@@ -25,8 +28,26 @@ def create_app(test_config=None):
 
     @app.route("/")
     def index():
-        registerUserVisit(request)
         return render_template('index.html')
+
+    @app.route('/metrics', methods=['POST'])
+    def metrics():
+        data = request.json
+        try:
+            tz = pytz.timezone(data['timezone'])
+            user = User.query.filter_by(ip_address=data['ip']).first()
+            if user is None:
+                user = createUser(data)
+                db_session.add(user)
+                db_session.commit()
+            
+            visit = Visit(user.id, request.headers['User-Agent'], datetime.now(tz))
+            db_session.add(visit)
+            db_session.commit()
+            return '200'
+        except:
+            pass
+        return '500'
 
     # Remove DB connection after request or at shut down
     @app.teardown_appcontext
@@ -39,34 +60,12 @@ def create_app(test_config=None):
 
     return app
 
-def ipData(ip):
-    return requests.get('https://ipgeolocation.abstractapi.com/v1/',
-                         params={'api_key': os.environ['ABSTRACTAPI_KEY'],'ip_address': ip}
-                        ).json()
-
-def createUser(d):
+def createUser(data):
     return User(
-        ip = d['ip_address'],
-        vpn = d['security']['is_vpn'],
-        continent = d['continent'],
-        country = d['country'],
-        region = d['region'],
-        city = d['city'],
-        postal = d['postal'],
-        latitude = d['latitude'],
-        longitude = d['longitude']
+        data['ip'],
+        data['country'],
+        data['region'],
+        data['city'],
+        data['postal'],
+        data['loc']
     )
-
-def registerUserVisit(request):
-    data = ipData(request.remote_addr)
-    print(data)
-    user = User.query.filter_by(ip=data['ip_address']).first()
-    if user is None:
-        user = createUser(data)
-        db_session.add(user)
-        db_session.commit()
-    
-    tz = pytz.timezone(data['timezone']['name'])
-    visit = Visit(user.id, request.headers['User-Agent'], datetime.now(tz))
-    db_session.add(visit)
-    db_session.commit()

@@ -1,31 +1,25 @@
 from .database import Base
-from sqlalchemy import Boolean, DateTime, Numeric, Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy import Boolean, DateTime, Date, Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship, backref
 
 class User(Base):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
-    ip = Column(String(100), unique=True)
-    vpn = Column(Boolean())
-    continent = Column(String(255))
+    ip_address = Column(String(100), unique=True)
     country = Column(String(255))
     region = Column(String(255))
     city = Column(String(255))
     postal = Column(String(255))
-    latitude = Column(Numeric(5))
-    longitude = Column(Numeric(5))
+    long_lat = Column(String(255))
     visits = relationship('Visit', backref=__tablename__)
 
-    def __init__(self, ip, vpn, continent, country, region, city, postal, latitude, longitude):
-        self.ip = ip
-        self.vpn = vpn
-        self.continent = continent
+    def __init__(self, ip_address, country, region, city, postal, long_lat):
+        self.ip_address = ip_address
         self.country = country
         self.region = region
         self.city = city
         self.postal = postal
-        self.latitude = latitude
-        self.longitude = longitude
+        self.long_lat = long_lat
 
 class Visit(Base):
     __tablename__ = 'visit'
